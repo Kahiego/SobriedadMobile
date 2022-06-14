@@ -1,6 +1,10 @@
 import React,{useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
 
+  // React navigation
+  import { NavigationContainer } from '@react-navigation/native';
+  import { createNativeStackNavigator } from '@react-navigation/native-stack';
+  
     //formik (creation de formulaire)
 import {Formik}  from 'formik';
 
@@ -23,7 +27,11 @@ import {
         RightIcon,
         StyledButton,
         ButtonText,
-        Colors
+        Colors,
+        ExtraView,
+        ExtraText,
+        TextLink,
+        TextLinkContent
 } from './../components/styles';
 import {View} from 'react-native';
     
@@ -32,7 +40,7 @@ const {brand, darklight} = Colors;
 
 
         //page de Login 
-const Login = () => {
+const Login = ({navigation}) => {
         const{hidePassword, setHidePassword} = useState(true)
 
     return (
@@ -41,47 +49,54 @@ const Login = () => {
             <InnerContainer>
                     <PageLogo resizeMode="cover" source={require('./../assets/logo.png')}/>
                     <PageTitle> Resources Relationnelles </PageTitle>
-                    <SubTitle> Account Login  </SubTitle>
+                    <SubTitle> CONNEXION  </SubTitle>
                         
                     <Formik
                         initialesValues={{ email: '', password: ''}}
                         onSubmit={(values) =>{
-                            console.log(values);
+                            console.log(values);  
+                            navigation.navigate("Accueil");
                         }}
                     >
-                        {({handleChange, handleBlur, handleSubmit, values}) => (
+                        {({handleChange, handleBlur, handleSubmit,values}) => (
                         <StyledFormArea>
 
                             <MyTextInput
-                                label="Email Adress"
+                                label="Adresse e-mail"
                                 icon="mail"
                                 placeholder="user@gmail.com"
                                 placeholderTextColor={darklight} 
                                 onChangeText={handleChange('email')}
                                 onBlur={handleBlur('email')}
-                                value = {values?.email}
+                                value={values?.email}
                                 keyboardType='email-address'
                                 
                             />
 
                             <MyTextInput
-                                label="Password"
+                                label="Mot de passe"
                                 icon="lock"
                                 placeholder="* * * * * * * *"
                                 placeholderTextColor={darklight} 
                                 onChangeText={handleChange('password')}
                                 onBlur={handleBlur('password')}
-                                value = {values?.password}
+                                value={values?.password}
                                 securityTextEntry={hidePassword}
                                 isPassword={true}
                                 hidePassword={hidePassword}
                                 setHidePassword={setHidePassword}
                             />
                                 
-                            <StyledButton onPress={handleSubmit}>
-                                <ButtonText>Login</ButtonText>   
+                            <StyledButton onPress = {() => navigation.navigate('Accueil')}>
+                                <ButtonText>Se connecter</ButtonText>   
                             </StyledButton>
-                            
+
+                            <ExtraView>
+                                <ExtraText>Vous n’avez pas de compte ?</ExtraText>
+                               <TextLink onPress={() =>  navigation.navigate('Signup')}>
+                                    <TextLinkContent>Inscrivez-vous</TextLinkContent>
+                                </TextLink>
+                            </ExtraView>
                             
 
                         </StyledFormArea>)}

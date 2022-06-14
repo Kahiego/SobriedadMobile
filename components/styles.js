@@ -20,9 +20,9 @@ const { primary, secondary, tertiary, darkLight, brand, green, red } = Colors;
 export const StyledContainer = styled.View`
    flex:1;
    padding:25px;
-   padding-top: ${StatusBarHeight + 10}px;
+   padding-top: ${StatusBarHeight + 30}px;
    background-color: ${primary};
-`
+`;
 
    //design 
 
@@ -30,6 +30,28 @@ export const InnerContainer = styled.View`
    flex:1;
    width: 100%;
    align-items: center;
+`;
+   //Page d'accueil
+export const AccueilContainer = styled(InnerContainer)`
+   padding: 25px;
+   padding-top: 200px;
+   justify-content: center;
+`;
+     //Page d'accueil (not used)
+export const Avatar = styled.Image`
+width: 100px;
+height: 100px;
+margin: auto;
+border-radius: 50px;
+border-width: 2px;
+border-color: ${secondary};
+margin-bottom: 10px;
+margin-top: 10px;
+`;
+     //Page d'accueil (not used)
+export const AccueilImage = styled.Image`
+   min-width: 100%;
+   height: 50%;
 `;
 
    //Logo (image)
@@ -45,6 +67,10 @@ export const PageTitle = styled.Text`
    font-weight: bold;
    color: ${brand};
    padding: 10px;
+
+   ${(props) => props.welcome && `
+   font-size:35px;
+   `}
 `;
    // Sous-titre
 export const SubTitle = styled.Text`
@@ -72,7 +98,7 @@ export const StyledTextInput = styled.TextInput`
    margin-bottom: 10px;
    color: ${tertiary};
 `;
-      //Label
+      //Label(titres des champs)
    
 export const StyledInputLabel = styled.Text`
    color: ${tertiary};
@@ -96,6 +122,7 @@ export const RightIcon = styled.TouchableOpacity`
    z-index: 1;
 `;
 
+   //Bouton login
 export const StyledButton = styled.TouchableOpacity`
    padding: 15px;
    background-color: ${brand};
@@ -108,4 +135,25 @@ export const StyledButton = styled.TouchableOpacity`
 export const ButtonText = styled.Text`
    color: ${primary};
    font-size: 16px;
+`;
+   //ligne d'inscrtption
+export const ExtraView = styled.View`
+   justify-content: center;
+   flex-direction: row;
+   align-items: center;
+   padding: 10px;
+`;
+export const ExtraText = styled.Text`
+   justify-content: center;
+   align-content: center;
+   color: ${tertiary};
+   font-size: 15px;
+`;
+export const TextLink = styled.TouchableOpacity`
+   justify-content: center;
+   align-items: center;
+`;
+export const TextLinkContent = styled.Text`
+   color: ${brand};
+   font-size: 15px;
 `;

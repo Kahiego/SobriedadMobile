@@ -1,11 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
 
+    //React navigation stack
 
-    //screens 
-import Login from './screeens/Login';
+import RootStack from './navigators/RootStack';
 
 export default function App() {
-  return <Login/>;
+  return <RootStack/>;
 }
-
