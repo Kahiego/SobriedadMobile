@@ -32,7 +32,7 @@ import {
         AccueilImage,
         Avatar
 
-} from './../components/styles';
+} from '../../components/styles';
 import {View} from 'react-native';
     
         //Colors
@@ -47,7 +47,7 @@ const Accueil = ({navigation}) => {
        <>
             <StatusBar style="dark" />
             <InnerContainer>
-                    <PageLogo resizeMode="cover" source={require('./../assets/logo.png')}/>
+                    <PageLogo resizeMode="cover" source={require('../../assets/logo.png')}/>
                     <PageTitle> Resources Relationnelles </PageTitle>
                     <SubTitle> Accueil</SubTitle>
 
