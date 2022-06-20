@@ -7,15 +7,12 @@ import { NavigationContainer } from '@react-navigation/native';
 //------------------ SCREENS --------------------- //
 import { Profile } from './screens/Profile/Profile';
 import { Home } from './screens/Home/Home';
+import Login from './screens/Login/Login';
+import Signup from './screens/Login/Signup';
 
 
 export default function App() {
-  return (
-    <NavigationContainer>
-      <RootNavigator />
-      <StatusBar style="auto" /> 
-    </NavigationContainer>
-  );
+  return <Signup/>;
 }
 
 const styles = StyleSheet.create({
