@@ -12,7 +12,12 @@ import Signup from './screens/Login/Signup';
 
 
 export default function App() {
-  return <Signup/>;
+  return (
+    <NavigationContainer>
+      <RootNavigator />
+      <StatusBar style="auto" /> 
+    </NavigationContainer>
+  );
 }
 
 const styles = StyleSheet.create({
