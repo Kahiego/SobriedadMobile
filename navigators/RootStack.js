@@ -12,8 +12,6 @@ const {primary, tertiary} = Colors;
 import Login from './../screeens/Login/Login';
 import Signup from './../screeens/Login/Signup';
 import Accueil from '../screeens/Login/Accueil';
-import  Home  from "../screeens/Home/Home";
-import  Profile  from "../screeens/Profile/Profile";
 
 const Stack = createNativeStackNavigator();
 
@@ -37,8 +35,6 @@ const RootStack = () => {
                     <Stack.Screen name="Login" component={Login}/>
                     <Stack.Screen name="Signup" component={Signup}/>
                     <Stack.Screen name="Accueil" component={Accueil}/>
-                    <Stack.Screen name="Home" component={Home}/>
-                    <Stack.Screen name="Profile" component={Profile}/>
                 </Stack.Navigator>
             </NavigationContainer>
     );
