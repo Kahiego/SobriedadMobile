@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 import {View, Text, Image, TextInput, TouchableOpacity} from 'react-native';
 import Constants  from 'expo-constants';
 
@@ -121,7 +121,17 @@ export const RightIcon = styled.TouchableOpacity`
    position: absolute;
    z-index: 1;
 `;
-
+export const LeftIconButton = styled.View`
+   left: 10px;
+   top: 28px;
+   position: absolute;
+   z-index: 1;
+`;
+export const LeftIconInfo = styled.View`
+   left: 0;
+   position: absolute;
+   z-index: 1;
+`;
    //Bouton login
 export const StyledButton = styled.TouchableOpacity`
    padding: 15px;
