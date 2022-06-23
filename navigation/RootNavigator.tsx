@@ -4,6 +4,8 @@ import tw from "tailwind-react-native-classnames";
 
 import { Home } from "../screens/Home/Home";
 import { Profile } from "../screens/Profile/Profile";
+import { Login } from "../screens/Login/Login";
+import { Signup } from "../screens/Login/Signup";
 
 export type RouteParams = {
     Home: undefined;
@@ -35,7 +37,7 @@ export const RootNavigator = () => {
                         headerTintColor: "#FFF"
                     }}
                 /> 
-                / mes modifs 
+              
                 <Stack.Screen name="Login" 
                     component={Login} 
                     options = {{ 
@@ -52,7 +54,7 @@ export const RootNavigator = () => {
                         headerTintColor: "#FFF"
                     }}                    
                 /> 
-                */ mes modifs 
+              
             </Stack.Group>
         </Stack.Navigator>
     );

@@ -23,7 +23,7 @@ export const Home: React.FunctionComponent<HomeProps> = ({}) => {
             title="Profile" onPress={() => navigation.navigate('Profile', {
               title: "PROFILE", description: "description du profil de la personne"
           })}/>
-            /mes modifs
+           
           <Button 
             title="Singnup" onPress={() => navigation.navigate('Singnup', {
               title: "Singnup", description: "Singnup"
@@ -32,7 +32,7 @@ export const Home: React.FunctionComponent<HomeProps> = ({}) => {
             title="Login" onPress={() => navigation.navigate('Login', {
               title: "Login", description: "Login"
           })}/>
-            /mes modifs
+
           <View>
             <PublicationCard pp="../../assets/avatar1.png" username="Bjorn" title="PUB TITLE" content="CONTENT" imageurl="../../assets/LogoSOT.png" like="32" comment="5" />
             <PublicationCard pp="../../assets/avatar1.png" username="Bjorn" title="PUB TITLE" content="CONTENT" imageurl="../../assets/LogoSOT.png" like="32" comment="5" />
