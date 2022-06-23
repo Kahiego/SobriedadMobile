@@ -1,0 +1,23 @@
+            <Button 
+            title="Singnup" onPress={() => navigation.navigate('Singnup', {
+              title: "Singnup", description: "Singnup"
+          })}/>
+            <Button 
+            title="Login" onPress={() => navigation.navigate('Login', {
+              title: "Login", description: "Login"
+          })}/>
+
+      <Stack.Screen name="Singup" 
+                    component={Singup} 
+                    options = {{ 
+                        animation: "slide_from_right",
+                        headerStyle: tw.style('bg-blue-500'),
+                        headerTintColor: "#FFF"
+                    }}
+                    <Stack.Screen name="Login" 
+                    component={Login} 
+                    options = {{ 
+                        animation: "slide_from_right",
+                        headerStyle: tw.style('bg-blue-500'),
+                        headerTintColor: "#FFF"
+                    }}

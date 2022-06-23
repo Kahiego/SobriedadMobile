@@ -35,6 +35,24 @@ export const RootNavigator = () => {
                         headerTintColor: "#FFF"
                     }}
                 /> 
+                / mes modifs 
+                <Stack.Screen name="Login" 
+                    component={Login} 
+                    options = {{ 
+                        animation: "slide_from_right",
+                        headerStyle: tw.style('bg-blue-500'),
+                        headerTintColor: "#FFF"
+                    }}                    
+                /> 
+                <Stack.Screen name="Singnup" 
+                    component={Singnup} 
+                    options = {{ 
+                        animation: "slide_from_right",
+                        headerStyle: tw.style('bg-blue-500'),
+                        headerTintColor: "#FFF"
+                    }}                    
+                /> 
+                */ mes modifs 
             </Stack.Group>
         </Stack.Navigator>
     );

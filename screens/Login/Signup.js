@@ -113,7 +113,7 @@ const {brand, darklight} = Colors;
                    setHidePassword={setHidePassword}
                />
                 <StyledButton >
-                    <ButtonText>S'inscrire</ButtonText>   
+                    <ButtonText>Sinscrire</ButtonText>   
                 </StyledButton>
 
                  <ExtraView>

@@ -95,7 +95,7 @@ const {brand, darklight} = Colors;
                 </StyledButton>
 
                 <ExtraView>
-                <ExtraText>Vous n’avez pas de compte ?</ExtraText>
+                <ExtraText>Vous navez pas de compte ?</ExtraText>
                 <TextLink>
                     <TextLinkContent>Inscrivez-vous</TextLinkContent>
                 </TextLink>
@@ -132,3 +132,4 @@ const {brand, darklight} = Colors;
     };
     
 export default Login;
+
