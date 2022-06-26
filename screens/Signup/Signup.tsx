@@ -41,6 +41,11 @@ const {brand, darklight} = Colors;
 
 interface SignupProps {}
 
+
+function test(Username: string,Mail: string,Password: string): void {
+   alert("Username : "+Username+" mail : "+Mail+" Password : "+Password);
+}
+
 export const Signup: React.FunctionComponent<SignupProps> = ({}) => {
     const route = useRoute<RouteProp<RouteParams>>();
     const navigation = useNavigation<NativeStackNavigationProp<RouteParams>>();
@@ -103,13 +108,18 @@ export const Signup: React.FunctionComponent<SignupProps> = ({}) => {
                                 setHidePassword={setHidePassword}
                             />
                             <StyledButton >
-                                <ButtonText>S'inscrire</ButtonText>   
+                                <ButtonText>
+                                S'inscrire
+                                </ButtonText>   
                             </StyledButton>
                             <ExtraView>
                                 <ExtraText>Vous avez un compte ?</ExtraText>
                                 <TextLink >
-                                    <TextLinkContent> Connectez-vous </TextLinkContent>
+                                    <TextLinkContent> Connectez-vous 
+                                    onPress={() => alert("TextBox Value is ")}</TextLinkContent>
                                 </TextLink>
+                                <Button 
+                                 title="Login" onPress={() => test(values.fullname,values.email,values.password)}/>
                             </ExtraView>
                         </StyledFormArea>
                     )}
