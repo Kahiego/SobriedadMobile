@@ -42,15 +42,28 @@ const {brand, darklight} = Colors;
 interface SignupProps {}
 
 
-function test(Username: string,Mail: string,Password: string): void {
+function insertUser(Username: string,Mail: string,Password: string): void {
     let User = {
       Username: Username,
       Mail: Mail,
       Password: Password
     };
-   alert("Username : "+User.Username+" mail : "+User.Mail+" Password : "+User.Password);
-}
+    
+   var apiURL="http://api/insertAccount2.php";
 
+   var headers={
+                'Accept':'application/json',
+                'Content-Type':'application.json'
+            };
+   fetch(apiURL,
+            {
+                method:'POST',
+                headers:headers,
+                body: JSON.stringify(User)
+            })
+    alert("Username : "+User.Username+" mail : "+User.Mail+" Password : "+User.Password);
+}
+            
 export const Signup: React.FunctionComponent<SignupProps> = ({}) => {
     const route = useRoute<RouteProp<RouteParams>>();
     const navigation = useNavigation<NativeStackNavigationProp<RouteParams>>();
@@ -114,7 +127,7 @@ export const Signup: React.FunctionComponent<SignupProps> = ({}) => {
                             />
                             <StyledButton >
                                 <Button 
-                                 title="S'incrire" onPress={() => test(values.fullname,values.email,values.password)}
+                                 title="S'incrire" onPress={() => insertUser(values.fullname,values.email,values.password)}
                                  /> 
                             </StyledButton>
                             <ExtraView>
