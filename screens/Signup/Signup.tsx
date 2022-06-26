@@ -43,7 +43,12 @@ interface SignupProps {}
 
 
 function test(Username: string,Mail: string,Password: string): void {
-   alert("Username : "+Username+" mail : "+Mail+" Password : "+Password);
+    let User = {
+      Username: Username,
+      Mail: Mail,
+      Password: Password
+    };
+   alert("Username : "+User.Username+" mail : "+User.Mail+" Password : "+User.Password);
 }
 
 export const Signup: React.FunctionComponent<SignupProps> = ({}) => {
