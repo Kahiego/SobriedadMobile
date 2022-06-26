@@ -11,9 +11,14 @@ import  PublicationCard  from "../../components/PublicationCard";
 
 interface HomeProps {}
 
+
+
 export const Home: React.FunctionComponent<HomeProps> = ({}) => {
   const navigation = useNavigation<NativeStackNavigationProp<RouteParams>>();
- 
+
+   function Publication() {
+    <PublicationCard pp="../../assets/avatar1.png" username="Bjorn" title="PUB TITLE" content="CONTENT" imageurl="../../assets/LogoSOT.png" like="32" comment="5" />
+}
   return (
     <SafeAreaView>
       <ScrollView>
@@ -26,7 +31,7 @@ export const Home: React.FunctionComponent<HomeProps> = ({}) => {
             <Button 
             title="Login" onPress={() => navigation.navigate('Inscription')}/>
           <View>
-            <PublicationCard pp="../../assets/avatar1.png" username="Bjorn" title="PUB TITLE" content="CONTENT" imageurl="../../assets/LogoSOT.png" like="32" comment="5" />
+            {Publication()}
             <PublicationCard pp="../../assets/avatar1.png" username="Bjorn" title="PUB TITLE" content="CONTENT" imageurl="../../assets/LogoSOT.png" like="32" comment="5" />
             <PublicationCard pp="../../assets/avatar1.png" username="Bjorn" title="PUB TITLE" content="CONTENT" imageurl="../../assets/LogoSOT.png" like="32" comment="5" />
           </View>
@@ -35,8 +40,6 @@ export const Home: React.FunctionComponent<HomeProps> = ({}) => {
     </SafeAreaView>
   );
 };
-
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,

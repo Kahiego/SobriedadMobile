@@ -43,12 +43,17 @@ interface SignupProps {}
 
 
 function insertUser(Username: string,Mail: string,Password: string): void {
+    //if(Username.length==0 ||Mail.length==0 || Password.length==0)
+   //     {
+   //         alert("Veuillez Remplir Tout les champs.");
+   //     }
+   //else{
     let User = {
       Username: Username,
       Mail: Mail,
       Password: Password
     };
-    
+
    var apiURL="http://api/insertAccount2.php";
 
    var headers={
