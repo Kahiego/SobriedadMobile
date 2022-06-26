@@ -108,18 +108,16 @@ export const Signup: React.FunctionComponent<SignupProps> = ({}) => {
                                 setHidePassword={setHidePassword}
                             />
                             <StyledButton >
-                                <ButtonText>
-                                S'inscrire
-                                </ButtonText>   
+                                <Button 
+                                 title="S'incrire" onPress={() => test(values.fullname,values.email,values.password)}
+                                 /> 
                             </StyledButton>
                             <ExtraView>
                                 <ExtraText>Vous avez un compte ?</ExtraText>
                                 <TextLink >
-                                    <TextLinkContent> Connectez-vous 
-                                    onPress={() => alert("TextBox Value is ")}</TextLinkContent>
+                                    <TextLinkContent> Connectez-vous </TextLinkContent>
                                 </TextLink>
-                                <Button 
-                                 title="Login" onPress={() => test(values.fullname,values.email,values.password)}/>
+                                
                             </ExtraView>
                         </StyledFormArea>
                     )}
