@@ -20,8 +20,8 @@ export const Home: React.FunctionComponent<HomeProps> = ({}) => {
         <View style={styles.container}>
           <Text>Home</Text>
           <Button 
-            title="Profile" onPress={() => navigation.navigate('Profile', {
-              title: "PROFILE", description: "description du profil de la personne"
+            title="Profile" onPress={() => navigation.navigate('Profil', {
+              title: "PROFIL", description: "description du profil de la personne"
           })}/>
           <View>
             <PublicationCard pp="../../assets/avatar1.png" username="Bjorn" title="PUB TITLE" content="CONTENT" imageurl="../../assets/LogoSOT.png" like="32" comment="5" />

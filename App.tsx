@@ -7,8 +7,8 @@ import { NavigationContainer } from '@react-navigation/native';
 //------------------ SCREENS --------------------- //
 import { Profile } from './screens/Profile/Profile';
 import { Home } from './screens/Home/Home';
-import Login from './screens/Login/Login';
-import Signup from './screens/Login/Signup';
+import { Login } from './screens/Login/Login';
+import { Signup } from './screens/Signup/Signup';
 
 
 export default function App() {
