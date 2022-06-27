@@ -16,18 +16,48 @@ interface HomeProps {}
 export const Home: React.FunctionComponent<HomeProps> = ({}) => {
   const navigation = useNavigation<NativeStackNavigationProp<RouteParams>>();
 
+  function getPost(): void {
+    let User = {
+   
+    };
+
+   var apiURL="http://api/getPosts2.php";
+
+   var headers={
+                'Accept':'application/json',
+               'Content-Type':'application.json'
+            };
+   fetch(apiURL,
+            {
+                method:'POST',
+                headers:headers,
+                body: JSON.stringify(User)
+            }
+            )
+            .then((response)=>response.json())
+            .then((response)=>
+            {
+              alert(response[0].Message);
+            }
+            )
+            alert(response[0].Message);
+  
+}
+
    function Publication() {
     <PublicationCard pp="../../assets/avatar1.png" username="Bjorn" title="PUB TITLE" content="CONTENT" imageurl="../../assets/LogoSOT.png" like="32" comment="5" />
-}
+   }
   return (
     <SafeAreaView>
       <ScrollView>
         <View style={styles.container}>
-          <Text>Home</Text>
+          <Text>Home</Text> 
           <Button 
             title="Profile" onPress={() => navigation.navigate('Profil', {
               title: "PROFIL", description: "description du profil de la personne"
           })}/>
+            <Button 
+            title="Post" onPress={() => getPost()}/>
             <Button 
             title="Login" onPress={() => navigation.navigate('Inscription')}/>
           <View>
