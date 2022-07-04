@@ -43,17 +43,13 @@ interface SignupProps {}
 
 
 function insertUser(Username: string,Mail: string,Password: string): void {
-    //if(Username.length==0 ||Mail.length==0 || Password.length==0)
-   //     {
-   //         alert("Veuillez Remplir Tout les champs.");
-   //     }
-   //else{
+  
     let User = {
       Username: Username,
       Mail: Mail,
       Password: Password
     };
-
+    console.log(JSON.stringify(User));
    var apiURL="http://api/insertAccount2.php";
 
    var headers={
@@ -66,8 +62,8 @@ function insertUser(Username: string,Mail: string,Password: string): void {
                 headers:headers,
                 body: JSON.stringify(User)
             })
-    alert("Username : "+User.Username+" mail : "+User.Mail+" Password : "+User.Password);
-}
+navigation.navigate('Connexion')  
+};
             
 export const Signup: React.FunctionComponent<SignupProps> = ({}) => {
     const route = useRoute<RouteProp<RouteParams>>();

@@ -9,11 +9,26 @@ import { Signup } from "../screens/Signup/Signup";
 
 export type RouteParams = {
     Login: undefined;
+
     Signup: undefined;
-    Home: undefined;
+
+    Home : {
+        User : undefined;
+        Mail : undefined;
+        Username : undefined;
+        Lastname : undefined;
+        Firstname : undefined;
+        Account_Id : undefined;
+    }
+
     Profile: {
         title: string;
         description: string;
+        Mail : undefined;
+        Username : undefined;
+        Lastname : undefined;
+        Firstname : undefined;
+        Account_Id : undefined;
     };
 };
 
@@ -55,6 +70,7 @@ export const RootNavigator = () => {
                         headerTintColor: "#FFF"
                     }}
                 />
+                
             </Stack.Group>
         </Stack.Navigator>
     );

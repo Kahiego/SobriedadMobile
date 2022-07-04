@@ -5,6 +5,10 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { RouteParams } from "../../navigation/RootNavigator";
 import tw from 'tailwind-react-native-classnames';
+import axios, {
+  AxiosRequestConfig,
+  AxiosResponse,
+} from 'axios';
 
 // ------------------ COMPONENTS ---------------------- //
 import  PublicationCard  from "../../components/PublicationCard";
@@ -12,42 +16,65 @@ import  PublicationCard  from "../../components/PublicationCard";
 interface HomeProps {}
 
 
-
 export const Home: React.FunctionComponent<HomeProps> = ({}) => {
   const navigation = useNavigation<NativeStackNavigationProp<RouteParams>>();
 
   function getPost(): void {
-    let User = {
-   
-    };
 
-   var apiURL="http://api/getPosts2.php";
-
-   var headers={
+var headers={
                 'Accept':'application/json',
-               'Content-Type':'application.json'
+                'Content-Type':'application.json'
             };
-   fetch(apiURL,
-            {
-                method:'POST',
-                headers:headers,
-                body: JSON.stringify(User)
-            }
-            )
-            .then((response)=>response.json())
-            .then((response)=>
-            {
-              alert(response[0].Message);
-            }
-            )
-            alert(response[0].Message);
-  
+
+axios({
+  method: 'get',
+  url: 'http://api/getPosts2.php',
+  crossdomain: true,
+  withCredentials: false,
+  headers:headers
+})
+  .then(response => {
+    
+    var a = response.data;
+    console.log(response)
+    const objstring = JSON.stringify(a);
+    const jsonobj = JSON.parse(objstring);
+ 
+    for(const prop in jsonobj){
+      console.log(prop);
+      var obj = jsonobj[prop]
+      var obj2 = obj["Response"]
+
+      var post_id = obj2["post_id"];
+      var account_id = obj2["account_id"];
+      var categorie_id = obj2["categorie_id"];
+      var message = obj2["message"];
+      var post_date = obj2["post_date"];
+      var post_picture = obj2["post_picture"];
+      var reported = obj2["reported"];
+      var title = obj2["title"];
+
+      console.log(post_id);
+      console.log(account_id);
+      console.log(categorie_id);
+      console.log(post_date);
+      console.log(message);
+      console.log(post_picture);
+      console.log(reported);
+      console.log(title);
+ //    PublicationCard(); 
+    }
+  })
+   .catch(function (error) {
+    console.log(error);
+  })
 }
 
    function Publication() {
     <PublicationCard pp="../../assets/avatar1.png" username="Bjorn" title="PUB TITLE" content="CONTENT" imageurl="../../assets/LogoSOT.png" like="32" comment="5" />
    }
   return (
+    
     <SafeAreaView>
       <ScrollView>
         <View style={styles.container}>
@@ -59,8 +86,11 @@ export const Home: React.FunctionComponent<HomeProps> = ({}) => {
             <Button 
             title="Post" onPress={() => getPost()}/>
             <Button 
-            title="Login" onPress={() => navigation.navigate('Inscription')}/>
+            title="Inscription" onPress={() => navigation.navigate('Inscription')}/>
+            <Button 
+            title="Login" onPress={() => navigation.navigate('Connexion')}/>
           <View>
+            {getPost()}
             {Publication()}
             <PublicationCard pp="../../assets/avatar1.png" username="Bjorn" title="PUB TITLE" content="CONTENT" imageurl="../../assets/LogoSOT.png" like="32" comment="5" />
             <PublicationCard pp="../../assets/avatar1.png" username="Bjorn" title="PUB TITLE" content="CONTENT" imageurl="../../assets/LogoSOT.png" like="32" comment="5" />
