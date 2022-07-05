@@ -7,7 +7,10 @@ import { Button } from 'react-native-elements'
 import { CurrentRenderContext, useNavigation, useRoute, RouteProp } from "@react-navigation/native";
 import { RouteParams } from "../../navigation/RootNavigator";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-
+import axios, {
+  AxiosRequestConfig,
+  AxiosResponse,
+} from 'axios';
   
 //formik (creation de formulaire)
 import {Formik}  from 'formik';
@@ -47,6 +50,34 @@ export const Login: React.FunctionComponent<LoginProps> = ({}) => {
     const navigation = useNavigation<NativeStackNavigationProp<RouteParams>>();
     const{ hidePassword, setHidePassword } = useState(true);
 
+function logUser(Mail: string,Password: string): void {
+
+    let User = {
+      Mail: Mail,
+      Password: Password
+    };
+
+   axios.post('http://api/getUser2.php', User)
+      .then(function (response) {
+        const obj = JSON.parse(JSON.stringify(response.data))
+        const user = obj["0"]["Response"];
+
+        console.log(user["mail"]);
+        console.log(user["username"]);
+        console.log(user["lastname"]);
+        console.log(user["firstname"]);
+        console.log(user["account_id"]);
+
+        navigation.navigate('Accueil',{
+            User: user,Mail: user["mail"], Username: user["username"],Lastname: user["lastname"],Firstname: user["firstname"],Account_Id: user["account_id"]
+        });    
+      })
+
+      .catch(function (error) {
+        console.log(error);
+      });
+};
+
     return (
         <ScrollView>
             <StyledContainer>
@@ -84,12 +115,15 @@ export const Login: React.FunctionComponent<LoginProps> = ({}) => {
                                     setHidePassword={setHidePassword}
                                 />
                                 <StyledButton >
-                                    <ButtonText onPress={() => navigation.navigate('Accueil')}>Se connecter</ButtonText>   
+                                    <Button 
+
+                                 title="Connexion" onPress={() => logUser(values.email,values.password)}
+                                 /> 
                                 </StyledButton>
                                 <ExtraView>
                                     <ExtraText>Vous n’avez pas de compte ?</ExtraText>
                                 </ExtraView>
-                                <TextLink onPress={() => navigation.navigate('Signup')}>
+                                <TextLink onPress={() => navigation.navigate('Inscription')}>
                                     <TextLinkContent>Inscrivez-vous</TextLinkContent>
                                 </TextLink>
                             </StyledFormArea>

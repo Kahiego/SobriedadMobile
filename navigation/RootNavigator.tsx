@@ -11,10 +11,29 @@ import { Signup } from "../screens/Signup/Signup";
 
 export type RouteParams = {
     Login: undefined;
+
     Signup: undefined;
-    Home: undefined;
+
+    Home : {
+        User : undefined;
+        Mail : undefined;
+        Username : undefined;
+        Lastname : undefined;
+        Firstname : undefined;
+        Account_Id : undefined;
+    }
+
     Profile: {
         title: string;
+<<<<<<< HEAD
+=======
+        description: string;
+        Mail : undefined;
+        Username : undefined;
+        Lastname : undefined;
+        Firstname : undefined;
+        Account_Id : undefined;
+>>>>>>> 5118f769906e20a2c7ba56091c575fd5c88acbf3
     };
     Messages: undefined;
     Discussion: undefined;
@@ -59,6 +78,7 @@ export const RootNavigator = () => {
                         headerTintColor: "#FFF"
                     }}
                 />
+<<<<<<< HEAD
                 <Stack.Screen name="Messages" 
                     component={Messages} 
                     options = {{ 
@@ -75,6 +95,9 @@ export const RootNavigator = () => {
                         headerTintColor: "#FFF"
                     }}
                 />
+=======
+                
+>>>>>>> 5118f769906e20a2c7ba56091c575fd5c88acbf3
             </Stack.Group>
         </Stack.Navigator>
     );
