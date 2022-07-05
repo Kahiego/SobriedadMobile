@@ -2,6 +2,10 @@ import React,  { useState } from "react";
 import { Dimensions, Text, View, StyleSheet, Image, Modal, Pressable,  ScrollView, TextInput  } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { CurrentRenderContext, useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+
+import { RouteParams } from "../navigation/RootNavigator";
 
 // -------------- COMPONENT ------------------- //
 import  CommentaireComp  from "./Comment"
@@ -19,7 +23,7 @@ interface PublicationProps {
 
 const PublicationCard: React.FunctionComponent<PublicationProps> = ( {pp, username, imageurl, title, content, like, comment }) => {
     const [modalVisible, setModalVisible] = useState(false);
-     
+    const navigation = useNavigation<NativeStackNavigationProp<RouteParams>>();
      return (
         <View style={styles.centeredView}>
             <Modal
@@ -55,7 +59,9 @@ const PublicationCard: React.FunctionComponent<PublicationProps> = ( {pp, userna
 
             <View style= {styles.cardContainer}>
                 <View style={styles.headerStyle}>
-                    <Image style={styles.imagePPStyle} source={require('../assets/avatar1.png')} />
+                    <Pressable onPress={() => navigation.navigate('Profil', {title: username})}>
+                        <Image style={styles.imagePPStyle} source={require('../assets/avatar1.png')} />
+                    </Pressable>
                     <Text style={styles.usernameStyle}>{username}</Text>
                 </View>
 

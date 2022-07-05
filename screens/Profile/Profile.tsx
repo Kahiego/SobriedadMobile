@@ -41,9 +41,9 @@ export const Profile: React.FunctionComponent<ProfileProps> = ({}) => {
         <View style={{flex:1, justifyContent: 'flex-start', alignItems: 'center'}}>
           <ImageBackground  source={require('../../assets/LogoSOT.png')} style={styles.imageStyle}></ImageBackground>
           <Image source={require('../../assets/avatar1.png')} style={styles.imageAvatar}></Image>
-          <Text style={styles.profileName}>Bjorn </Text> 
+          <Text style={styles.profileName}>{route.params?.title} </Text> 
           <View style={styles.catchphraseContainer}>
-            <Text style={styles.catchphrase}> c'est ma phrase d'accroche !</Text>
+            <Text style={styles.catchphrase}> {route.params?.description}</Text>
             <Text style={styles.catchphrase}> c'est ma bio wesh !</Text>
 
           </View>
